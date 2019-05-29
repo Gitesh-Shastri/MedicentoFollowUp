@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="Dashboard"
+        android:id="@+id/nav_dashboard"></item>
+    <item android:title="Pending Jobs"
+        android:id="@+id/nav_pendingjobs"></item>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Retention"
+            android:id="@+id/nav_retention"></item>
+        <item android:title="Acquisition"
+            android:id="@+id/nav_acquisition"></item>
+        <item android:title="Satisfaction"
+            android:id="@+id/nav_satisfaction"></item>
+
+    </group>
+
+    <item android:title="Cash Collection"
+        android:id="@+id/nav_cashcollection"></item>
+    <item android:title="Notification"
+        android:id="@+id/nav_notification"></item>
+    <item android:title="Settings"
+        android:id="@+id/nav_settings"></item>
+
+</menu>
