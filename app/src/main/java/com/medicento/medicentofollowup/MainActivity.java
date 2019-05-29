@@ -1,11 +1,12 @@
 package com.medicento.medicentofollowup;
 
-import android.app.Activity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
+
+/* Created as Dashboard- Nidhi Koli-DTU*/
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,5 +17,10 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        
+        DashboardFragment dashboardFragment=new DashboardFragment();
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        FragmentTransaction transaction=fragmentManager.beginTransaction();
+        transaction.replace(R.id.container,dashboardFragment).commit();
     }
 }
