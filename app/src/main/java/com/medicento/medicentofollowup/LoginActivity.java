@@ -1,6 +1,7 @@
 package com.medicento.medicentofollowup;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -55,16 +56,20 @@ public class LoginActivity extends AppCompatActivity {
                 String username = editTextUsername.getText().toString();
                 String password = editTextPassword.getText().toString();
 
-                // Validate username and password
+                // check whether username and password are null string or not
                 if (username.equals("")) {
                     showToastMessage("username/email can't be empty");
                     // set focus to editTextUsername
                     editTextUsername.requestFocus();
+
+                    return;
                 } else if (password.equals("")) {
                     showToastMessage("password can't be empty");
 
                     // set focus to editTextPassword
                     editTextPassword.requestFocus();
+
+                    return;
                 }
 
                 // translate to 0 and set visibility of logo to visible
@@ -74,6 +79,34 @@ public class LoginActivity extends AppCompatActivity {
                 imageViewLogo.setVisibility(View.VISIBLE);
 
                 closeKeyBoard();
+
+
+                // now check whether entered username and password are valid
+                if (username.equals("medicento")) {
+
+                    if (password.equals("12345")) {
+                        // login successful
+                        showToastMessage("Login successful..");
+
+                        // move to dashboard activity
+                       moveToActivity(MainActivity.class);
+                    }
+
+                    else {
+
+                        showToastMessage("Invalid password..");
+                        // get focus to editTextPassword
+                        editTextPassword.requestFocus();
+                    }
+
+                }
+
+                else {
+
+                    showToastMessage("Invalid username/email..");
+                    // get focus to editTextPassword
+                    editTextUsername.requestFocus();
+                }
 
             }
         });
@@ -124,9 +157,16 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // defining method showToastMessage() to show toast message
-    void showToastMessage(String messsage) {
+    private void showToastMessage(String messsage) {
 
         Toast.makeText(LoginActivity.this, messsage, Toast.LENGTH_SHORT).show();
+    }
+
+    // defining method moveToActivity()
+    private void moveToActivity(Class activity){
+
+        Intent i = new Intent(this, activity);
+        startActivity(i);
     }
 
 }
