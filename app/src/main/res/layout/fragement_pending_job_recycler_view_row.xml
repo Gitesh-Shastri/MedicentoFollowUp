@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="370dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="19dp"
+        android:elevation="1000dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="370dp"
+            android:layout_height="135dp"
+            android:background="#4DFFFFFF">
+
+
+            <TextView
+                android:id="@+id/textViewPharmacyName"
+                android:layout_width="173dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/view_border"
+
+                android:text="Vamsi Medicals"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewActionTime"
+                android:layout_width="177dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="42dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="18dp"
+                android:background="@drawable/view_border"
+                android:text="Appt. @ 8:00 A.M"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textViewMoto-"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPharmacyName"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageButton
+                android:id="@+id/imageButtonCall"
+                android:layout_width="60dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/view_border"
+                app:layout_constraintStart_toEndOf="@+id/textViewPharmacyName"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/sym_action_call" />
+
+            <TextView
+                android:id="@+id/textViewHigh"
+                android:layout_width="71dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/view_border"
+                android:text="HIGH"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageButtonCall"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewMoto-"
+                android:layout_width="157dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/view_border"
+                android:text="Cx Acquisition"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textViewActionTime"
+                app:layout_constraintTop_toBottomOf="@+id/imageButtonCall" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>
