@@ -29,6 +29,9 @@ dependencies {
     // adding card view dependency
     implementation 'com.android.support:cardview-v7:28.0.0'
 
-    // ading design dependency
+    // adding design dependency
     implementation 'com.android.support:design:28.0.0'
+
+    // adding recyclerview dependency
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
 }

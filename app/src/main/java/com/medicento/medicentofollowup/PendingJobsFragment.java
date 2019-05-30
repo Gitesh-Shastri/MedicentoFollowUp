@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,7 +17,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class PendingJobsFragment extends Fragment {
+
+    // ArrayList for pending job list
+    ArrayList rowElements = new ArrayList<>(Arrays.asList(new PendingJobListElement("ABCD", "1234", "Att.@ 8:00AM", "Cx Acquisition"),
+            new PendingJobListElement("ABCDE", "1234", "Call.@ 9:00AM", "Cx Retention"),
+            new PendingJobListElement("ABCDF", "1234", "Att.@ 8:00AM", "Cx Acquisition"),
+            new PendingJobListElement("ABCDG", "1234", "Att.@ 8:00AM", "Cx Acquisition"),
+            new PendingJobListElement("ABCDH", "1234", "Att.@ 8:00AM", "Cx Acquisition")));
 
     Toolbar toolbar;
 
@@ -42,6 +54,18 @@ public class PendingJobsFragment extends Fragment {
 
         // replace toolbar as actionbar
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+
+
+
+        // get the reference of RecyclerView
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewPendingJobs);
+
+        // set a LinearLayoutManager with default vertical orientation
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        //  call the constructor of CustomAdapter to send the reference and data to Adapter
+        CustomAdapterForPendingJobList customAdapter = new CustomAdapterForPendingJobList(getActivity(), rowElements);
+        recyclerView.setAdapter(customAdapter); // set the Adapter to RecyclerView
 
         return view;
     }
