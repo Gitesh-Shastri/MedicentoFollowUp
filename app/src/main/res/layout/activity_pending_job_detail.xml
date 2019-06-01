@@ -1,9 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PendingJobDetailActivity">
+    tools:context=".PendingJobDetailActivity"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:id="@+id/pending_job_detail_toolbar"
+        android:elevation="5dp">
+
+        <TextView
+            android:id="@+id/pharma_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name of the pharmacy"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/area"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:text="Name of Area:"
+        android:paddingVertical="20dp"
+        android:paddingHorizontal="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/address"
+        android:paddingHorizontal="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:text="Address of pharmacy: "
+        android:paddingVertical="20dp"/>
+
+
+
+</LinearLayout>

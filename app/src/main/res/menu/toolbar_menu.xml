@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/call_item" android:icon="@mipmap/call_icon"
+        android:title="Call" app:showAsAction="always"/>
+    <item android:id="@+id/msg_item" android:icon="@mipmap/msg_icon"
+        android:title="Message" app:showAsAction="always"/>
+</menu>
