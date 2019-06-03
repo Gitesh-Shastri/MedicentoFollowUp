@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class PendingJobDetailActivity extends AppCompatActivity {
@@ -13,6 +15,7 @@ public class PendingJobDetailActivity extends AppCompatActivity {
     Toolbar toolbar;
     Pharmacy pharmacy;
     TextView areaname,address,name;
+    ImageView calldown,msgdown;
 
     Toolbar.OnMenuItemClickListener toolbarListener=new Toolbar.OnMenuItemClickListener() {
         @Override
@@ -21,16 +24,10 @@ public class PendingJobDetailActivity extends AppCompatActivity {
 
             switch (id){
                 case R.id.call_item:
-                    Intent intent = new Intent(Intent.ACTION_DIAL );
-                    intent.setData(Uri.parse("tel:" + pharmacy.phone));
-                    startActivity(intent);
+                    call();
                     break;
                 case R.id.msg_item:
-                    Intent smsIntent = new Intent(Intent.ACTION_VIEW);
-                    smsIntent.setType("vnd.android-dir/mms-sms");
-                    smsIntent.putExtra("address", "12125551212");
-                    smsIntent.putExtra("sms_body","Body of Message");
-                    startActivity(smsIntent);
+                    message();
                     break;
             }
             return true;
@@ -56,9 +53,38 @@ public class PendingJobDetailActivity extends AppCompatActivity {
         areaname=findViewById(R.id.area);
         address=findViewById(R.id.address);
         name=findViewById(R.id.pharma_name);
+        calldown=findViewById(R.id.call_item_down);
+        msgdown=findViewById(R.id.msg_item_down);
+
+        calldown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                call();
+            }
+        });
+
+        msgdown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                message();
+            }
+        });
 
         areaname.setText("Area: "+pharmacy.areaname);
         address.setText("Address: "+pharmacy.address);
         name.setText(pharmacy.name);
+    }
+
+    public void call(){
+        Intent intent = new Intent(Intent.ACTION_DIAL );
+        intent.setData(Uri.parse("tel:" + pharmacy.phone));
+        startActivity(intent);
+    }
+
+    public void message(){
+        Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+        smsIntent.setType("vnd.android-dir/mms-sms");
+        smsIntent.putExtra("address", pharmacy.phone);
+        startActivity(smsIntent);
     }
 }

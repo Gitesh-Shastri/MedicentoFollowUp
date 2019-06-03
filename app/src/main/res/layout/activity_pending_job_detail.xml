@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PendingJobDetailActivity"
-    android:orientation="vertical">
+    android:id="@+id/pending_job_detail_layout">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -24,13 +24,14 @@
     </android.support.v7.widget.Toolbar>
 
     <TextView
+        android:id="@+id/area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/area"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:text="Name of Area:"
+        android:paddingHorizontal="10dp"
         android:paddingVertical="20dp"
-        android:paddingHorizontal="10dp"/>
+        android:text="Name of Area:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:layout_below="@id/pending_job_detail_toolbar"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -39,8 +40,28 @@
         android:paddingHorizontal="10dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:text="Address of pharmacy: "
-        android:paddingVertical="20dp"/>
+        android:paddingVertical="20dp"
+        android:layout_below="@id/area"/>
 
+    <ImageView
+        android:id="@+id/call_item_down"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:src="@mipmap/call_icon"
+        android:layout_below="@id/address"
+        android:layout_marginLeft="195sp"
+        android:layout_marginTop="50sp"
+        android:elevation="10sp"/>
 
+    <ImageView
+        android:id="@+id/msg_item_down"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/address"
+        android:layout_marginLeft="80sp"
+        android:layout_alignLeft="@id/call_item_down"
+        android:layout_marginTop="50sp"
+        android:src="@mipmap/msg_icon"
+        android:elevation="10sp" />
 
-</LinearLayout>
+</RelativeLayout>

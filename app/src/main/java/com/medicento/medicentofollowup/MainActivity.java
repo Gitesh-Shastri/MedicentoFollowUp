@@ -1,5 +1,6 @@
 package com.medicento.medicentofollowup;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -101,8 +102,9 @@ public class MainActivity extends AppCompatActivity implements DashboardFragment
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         Fragment currFragment=getSupportFragmentManager().findFragmentById(R.id.container);
-
+        Intent intent;
         switch (menuItem.getItemId()){
+
             case R.id.nav_dashboard:
                 break;
             case R.id.nav_pendingjobs:
