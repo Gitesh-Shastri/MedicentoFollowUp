@@ -105,16 +105,22 @@ public class MainActivity extends AppCompatActivity implements DashboardFragment
 
         Fragment currFragment=getSupportFragmentManager().findFragmentById(R.id.container);
 
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+
         switch (menuItem.getItemId()){
             case R.id.nav_dashboard:
                 break;
             case R.id.nav_pendingjobs:
                 break;
             case R.id.nav_acquisition:
+                loadFragment(new CustomerAcquisitionFragment());
                 break;
             case R.id.nav_retention:
+                loadFragment(new CustomerRetentionFragment());
                 break;
             case R.id.nav_satisfaction:
+                loadFragment(new CustomerSatisfactionFragment());
                 break;
             case R.id.nav_cashcollection:
                 break;
@@ -125,8 +131,7 @@ public class MainActivity extends AppCompatActivity implements DashboardFragment
 
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+
 
         return true;
     }

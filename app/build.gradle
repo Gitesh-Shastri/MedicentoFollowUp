@@ -32,6 +32,9 @@ dependencies {
     // adding design dependency
     implementation 'com.android.support:design:28.0.0'
 
-    // adding recyclerview dependency
+    // adding recycler-view dependency
     implementation 'com.android.support:recyclerview-v7:28.0.0'
+
+    // adding mongodb-driver dependency
+    implementation 'org.mongodb:mongodb-driver-sync:3.10.1'
 }

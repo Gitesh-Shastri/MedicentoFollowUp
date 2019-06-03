@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -12,6 +13,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoDatabase;
+
+import org.bson.Document;
+
+import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Filters.eq;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -89,19 +99,15 @@ public class LoginActivity extends AppCompatActivity {
                         showToastMessage("Login successful..");
 
                         // move to dashboard activity
-                       moveToActivity(MainActivity.class);
-                    }
-
-                    else {
+                        moveToActivity(MainActivity.class);
+                    } else {
 
                         showToastMessage("Invalid password..");
                         // get focus to editTextPassword
                         editTextPassword.requestFocus();
                     }
 
-                }
-
-                else {
+                } else {
 
                     showToastMessage("Invalid username/email..");
                     // get focus to editTextPassword
@@ -163,10 +169,63 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // defining method moveToActivity()
-    private void moveToActivity(Class activity){
+    private void moveToActivity(Class activity) {
 
         Intent i = new Intent(this, activity);
         startActivity(i);
+    }
+
+    // defining method getMongoDbConnection()
+    // to connect with localhost
+    private MongoClient getMongoDbConnection() {
+
+        try {
+
+            return MongoClients.create();
+
+        } catch (Exception e) {
+
+            Log.i("dbconnectionerror: ", e.getMessage());
+        }
+
+        return null;
+    }
+
+    // defining method verifyUser()
+    // to verify login credentials
+    private boolean verifyUser(String username, String password) {
+
+        // get db connection
+        MongoClient mongoClient = null;
+        try {
+            mongoClient = getMongoDbConnection();
+        } catch (Exception e) {
+            System.out.println("Haha");
+        }
+
+
+        if (mongoClient == null) {
+
+            return false;
+        }
+
+        MongoDatabase database = mongoClient.getDatabase("medicentoEmpDb");
+        Document document = null;
+
+        try {
+            document = database.getCollection("followUpUser").find(and(eq(username, "medicento"), eq(password, 12345))).first();
+
+        } catch (Exception e) {
+            Log.i("collection error: ", e.getCause().toString());
+        }
+
+
+        if (document == null)
+            return false;
+
+        System.out.println("Data is: " + document.toJson());
+
+        return true;
     }
 
 }

@@ -6,13 +6,7 @@
         Menu item that will be displayed on toolbar
     -->
 
-    <item
-        android:id="@+id/action_back_button"
-        android:orderInCategory="100"
-        android:title="action_back_button"
-        android:icon="@drawable/ic_arrow_back_black_24dp"
-        app:showAsAction="always"
-        />
+
 
     <item
         android:id="@+id/filter_pending_jobs"
@@ -21,6 +15,14 @@
         android:icon="@drawable/filter_filled_icon"
         app:showAsAction="always"
 
+        />
+
+    <item
+        android:id="@+id/action_back_button"
+        android:orderInCategory="100"
+        android:title="action_back_button"
+        android:icon="@drawable/ic_arrow_back_black_24dp"
+        app:showAsAction="always"
         />
 
 
