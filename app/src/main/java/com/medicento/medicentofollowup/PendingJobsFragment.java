@@ -2,6 +2,7 @@ package com.medicento.medicentofollowup;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -58,7 +59,19 @@ public class PendingJobsFragment extends Fragment {
 
 
         // get the reference of RecyclerView
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewPendingJobs);
+        final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewPendingJobs);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            recyclerView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(View view, int i, int i1, int i2, int i3) {
+                    if(toolbar.isSelected()){
+                        recyclerView.canScrollVertically(-1);
+                    }
+                }
+
+
+            });
+        }
 
         // set a LinearLayoutManager with default vertical orientation
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
