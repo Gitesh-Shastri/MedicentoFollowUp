@@ -17,7 +17,8 @@ public class PendingJobDetailActivity extends AppCompatActivity {
     TextView areaname,address,name;
     ImageView calldown,msgdown;
 
-    Toolbar.OnMenuItemClickListener toolbarListener=new Toolbar.OnMenuItemClickListener() {
+    Toolbar.OnMenuItemClickListener toolbarListener=
+            new Toolbar.OnMenuItemClickListener() {
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
             int id=menuItem.getItemId();
