@@ -43,12 +43,22 @@
         android:paddingVertical="20dp"
         android:layout_below="@id/area"/>
 
+    <TextView
+        android:id="@+id/timing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/address"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:text="Call @9:20"
+        android:padding="10dp"/>
+
     <ImageView
         android:id="@+id/call_item_down"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:src="@mipmap/call_icon"
-        android:layout_below="@id/address"
+        android:layout_below="@id/timing"
         android:layout_marginLeft="195sp"
         android:layout_marginTop="50sp"
         android:elevation="10sp"/>
@@ -57,7 +67,7 @@
         android:id="@+id/msg_item_down"
         android:layout_width="50sp"
         android:layout_height="50sp"
-        android:layout_below="@id/address"
+        android:layout_below="@id/timing"
         android:layout_marginLeft="80sp"
         android:layout_alignLeft="@id/call_item_down"
         android:layout_marginTop="50sp"

@@ -1,9 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PendingJobDetailExtensionActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:id="@+id/pending_job_detail_toolbar"
+            android:elevation="5dp">
+
+            <TextView
+                android:id="@+id/pharma_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name of the pharmacy"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
+        </android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="20dp"
+            android:text="Name of Area:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:layout_below="@id/pending_job_detail_toolbar"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/address"
+            android:paddingHorizontal="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:text="Address of pharmacy: "
+            android:paddingVertical="20dp"
+            android:layout_below="@id/area"/>
+
+        <TextView
+            android:id="@+id/timing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/address"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:text="Call @9:20"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/timing"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#000000"
+            android:text="Previous call @9:20 yesterday"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/count_of_distributors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="#000000"
+            android:text="No. of Distributions: 7"
+            android:padding="10dp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/distributors_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/count_of_distributors">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/count_problems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/distributors_recyclerview"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="#000000"
+            android:text="No. of Problems Faced: 7"
+            android:padding="10dp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/problems_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/count_problems">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <ImageView
+            android:id="@+id/call_item_down"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:src="@mipmap/call_icon"
+            android:layout_below="@id/problems_recyclerview"
+            android:layout_marginLeft="195sp"
+            android:layout_marginTop="50sp"
+            android:elevation="10sp"/>
+
+        <ImageView
+            android:id="@+id/msg_item_down"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_below="@id/problems_recyclerview"
+            android:layout_marginLeft="80sp"
+            android:layout_alignLeft="@id/call_item_down"
+            android:layout_marginTop="50sp"
+            android:src="@mipmap/msg_icon"
+            android:elevation="10sp" />
+
+    </RelativeLayout>
+
+</>

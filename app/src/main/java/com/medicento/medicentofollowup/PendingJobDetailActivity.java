@@ -12,12 +12,12 @@ import android.widget.TextView;
 
 public class PendingJobDetailActivity extends AppCompatActivity {
 
-    Toolbar toolbar;
-    Pharmacy pharmacy;
-    TextView areaname,address,name;
-    ImageView calldown,msgdown;
+    private Toolbar toolbar;
+    private Pharmacy pharmacy;
+    private TextView areaname,address,name;
+    private ImageView calldown,msgdown;
 
-    Toolbar.OnMenuItemClickListener toolbarListener=
+    private Toolbar.OnMenuItemClickListener toolbarListener=
             new Toolbar.OnMenuItemClickListener() {
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
