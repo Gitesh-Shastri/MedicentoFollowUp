@@ -44,12 +44,14 @@
                 card_view:layout_constraintTop_toTopOf="parent">
 
                 <TextView
+                    android:id="@+id/textViewPendingCount"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="PendingJobs"
                     android:textAlignment="center"
+                    android:textSize="15sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#000000"
                     />
@@ -67,12 +69,14 @@
                 card_view:layout_constraintTop_toTopOf="parent">
 
                 <TextView
+                    android:id="@+id/textViewToBeTargatedCount"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="1dp"
                     android:text="ToBeTargeted"
                     android:textAlignment="center"
+                    android:textSize="15sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#000000"
                    />
@@ -92,12 +96,14 @@
                 card_view:layout_constraintTop_toBottomOf="@+id/card_view1">
 
                 <TextView
+                    android:id="@+id/textViewCallMadeCount"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="20dp"
                     android:text="CallsMade"
                     android:textAlignment="center"
+                    android:textSize="15sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#000000"
                      />
@@ -118,12 +124,14 @@
                 card_view:layout_constraintTop_toBottomOf="@+id/card_view2">
 
                 <TextView
+                    android:id="@+id/textViewSuccessCount"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="20dp"
                     android:text="Success"
                     android:textAlignment="center"
+                    android:textSize="15sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#000000"
               />
@@ -144,12 +152,14 @@
                 card_view:layout_constraintTop_toBottomOf="@+id/card_view3">
 
                 <TextView
+                    android:id="@+id/textViewRemarksCount"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="20dp"
                     android:text="Remarks"
                     android:textAlignment="center"
+                    android:textSize="15sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#000000"
                    />
@@ -168,12 +178,14 @@
                 card_view:layout_constraintTop_toBottomOf="@+id/card_view4">
 
                 <TextView
+                    android:id="@+id/textViewCriticalCount"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="20dp"
                     android:text="Critical"
                     android:textAlignment="center"
+                    android:textSize="15sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#000000" />
 

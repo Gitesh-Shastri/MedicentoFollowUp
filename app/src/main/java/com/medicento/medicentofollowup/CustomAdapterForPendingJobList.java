@@ -16,20 +16,24 @@ class CustomAdapterForPendingJobList extends RecyclerView.Adapter<CustomAdapterF
 
 
     private ArrayList<PendingJobListElement> rowElements;
+    private ArrayList<PendingJobListElement> originalRowElements;
     private Context context;
 
     public CustomAdapterForPendingJobList(Context context, ArrayList rowElements) {
         this.context = context;
-        this.rowElements = rowElements;
+        this.rowElements = new ArrayList<>();
+        this.rowElements.addAll(rowElements);
+        ;
+        this.originalRowElements = rowElements;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        // infalte the item Layout
+        // inflate the item Layout
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragement_pending_job_recycler_view_row, viewGroup, false);
 
-        // set the view's size, margins, paddings and layout parameters
+        // set the view's size, margins, padding and layout parameters
         MyViewHolder vh = new MyViewHolder(v);
         return vh;
 
@@ -82,6 +86,40 @@ class CustomAdapterForPendingJobList extends RecyclerView.Adapter<CustomAdapterF
             tvMoto = v.findViewById(R.id.textViewMoto_);
             imageButtonCall = v.findViewById(R.id.imageButtonCall);
         }
+    }
+
+
+    // defining method to filter element in list
+    public void filter(String charText) {
+        charText = charText.toLowerCase();
+
+        if (charText.length() == 0) {
+            rowElements.clear();
+            rowElements.addAll(originalRowElements);
+        } else {
+            rowElements.clear();
+            for (PendingJobListElement element : originalRowElements) {
+                if (element.getPharmacyName().toLowerCase().contains(charText)) {
+                    rowElements.add(element);
+                }
+            }
+
+            if(rowElements.size() == 0){
+
+
+
+
+                Toast.makeText(context, charText + ": not found", Toast.LENGTH_SHORT).show();
+            }
+
+            else {
+
+                Toast.makeText(context, "found "+rowElements.size() + " results:)" , Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+        notifyDataSetChanged();
     }
 
 

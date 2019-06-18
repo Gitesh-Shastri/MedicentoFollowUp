@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,18 +12,25 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#03A9F4"
-        android:stateListAnimator="@animator/statelist_animator"
-       >
+        android:stateListAnimator="@animator/statelist_animator">
 
     </android.support.v7.widget.Toolbar>
+
+
+    <SearchView
+        android:id="@+id/searchViewFragmentPendingJobs"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:queryHint="Filter by name or address"
+        android:background="#4B00B0FF"
+        android:visibility="gone"
+        />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewPendingJobs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"
-         />
-
+        android:background="#ffffff" />
 
 
 </LinearLayout>
