@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -15,20 +16,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v7.widget.ActionMenuView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class CustomerAcquisitionFragment extends Fragment {
 
     // ArrayList for pending job list
-    private ArrayList rowElements = new ArrayList<>(Arrays.asList(new PendingJobListElement("ABCD", "1234", "Att.@ 8:00AM", "Cx Acquisition"),
-            new PendingJobListElement("ABCDE", "1234", "Call.@ 9:00AM", "Cx Acquisition"),
-            new PendingJobListElement("ABCDF", "1234", "Att.@ 8:00AM", "Cx Acquisition"),
-            new PendingJobListElement("ABCDG", "1234", "Call.@ 8:30AM", "Cx Acquisition"),
-            new PendingJobListElement("ABCDH", "1234", "Att.@ 10:00AM", "Cx Acquisition")));
+    private ArrayList rowElements = new ArrayList();
 
     private ActionMenuView actionMenuView;
 
@@ -38,6 +33,16 @@ public class CustomerAcquisitionFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
+        //get the pharmacy details and add into rowElements
+        Pharmacy pharmacy = new Pharmacy();
+        pharmacy.setPharmacyName("A.P. Pharma");
+        pharmacy.setActionMoto(Moto.ACQUISITION);
+        pharmacy.setCallingTime("Call@9:30PM");
+        pharmacy.setAddress("Bangalore");
+
+        rowElements.add(pharmacy);
 
         //  to make the options appear in your Toolbar
         setHasOptionsMenu(true);

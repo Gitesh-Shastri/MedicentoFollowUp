@@ -20,16 +20,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Date;
 
 public class PendingJobsFragment extends Fragment {
 
     // ArrayList for pending job list
-    protected static ArrayList rowElements = new ArrayList<>(Arrays.asList(new PendingJobListElement("ABCD", "1234", "Att.@ 8:00AM", "Cx Acquisition"),
-            new PendingJobListElement("ABCDE", "1234", "Call.@ 9:00AM", "Cx Retention"),
-            new PendingJobListElement("ABCDF", "1234", "Att.@ 8:00AM", "Cx Acquisition"),
-            new PendingJobListElement("ABCDG", "1234", "Att.@ 8:00AM", "Cx Acquisition"),
-            new PendingJobListElement("ABCDH", "1234", "Att.@ 8:00AM", "Cx Acquisition")));
+    protected static ArrayList<Pharmacy> rowElements = new ArrayList<Pharmacy>();
 
     Toolbar toolbar;
     SearchView searchViewFragmentPendingJobs;
@@ -43,6 +39,35 @@ public class PendingJobsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        //get the pharmacy details and add into rowElements
+        Pharmacy pharmacy1 = new Pharmacy();
+        pharmacy1.setPharmacyName("A.P. Pharma");
+        pharmacy1.setActionMoto(Moto.ACQUISITION);
+        pharmacy1.setCallingTime("Call@9:30PM");
+        pharmacy1.setAddress("Bangalore");
+
+        rowElements.add(pharmacy1);
+
+        Pharmacy pharmacy = new Pharmacy();
+        pharmacy.setPharmacyName("Gupta Pharma");
+        pharmacy.setActionMoto(Moto.RETENTION);
+        pharmacy.setCallingTime("Call@2:30PM");
+        pharmacy.setAddress("Bihar852107");
+        pharmacy.setFirstCallDate(new Date(2019, 6, 21));
+
+        Feedbacks feedbacks = new Feedbacks();
+        Problems problems = new Problems();
+        problems.setLateDelivery(true);
+
+        feedbacks.setLateDeliveryCount(5);
+        feedbacks.setOnboarded(Onboarded.YES);
+
+        pharmacy.setFirstOrderDate(new Date(2019, 4, 8));
+        pharmacy.setMobileNumber("8139001736");
+
+        // add to row elements
+
+        rowElements.add(pharmacy);
 
         //  to make the options appear in your Toolbar
         setHasOptionsMenu(true);

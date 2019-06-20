@@ -15,8 +15,8 @@ import java.util.ArrayList;
 class CustomAdapterForPendingJobList extends RecyclerView.Adapter<CustomAdapterForPendingJobList.MyViewHolder> {
 
 
-    private ArrayList<PendingJobListElement> rowElements;
-    private ArrayList<PendingJobListElement> originalRowElements;
+    private ArrayList<Pharmacy> rowElements;
+    private ArrayList<Pharmacy> originalRowElements;
     private Context context;
 
     public CustomAdapterForPendingJobList(Context context, ArrayList rowElements) {
@@ -42,9 +42,9 @@ class CustomAdapterForPendingJobList extends RecyclerView.Adapter<CustomAdapterF
     @Override
     public void onBindViewHolder(MyViewHolder viewHolder, final int i) {
 
-        viewHolder.tvPharmacyName.setText(rowElements.get(i).pharmacyName);
-        viewHolder.tvActionTime.setText(rowElements.get(i).actionTakenTime);
-        viewHolder.tvMoto.setText(rowElements.get(i).actionMoto);
+        viewHolder.tvPharmacyName.setText(rowElements.get(i).getPharmacyName());
+        viewHolder.tvActionTime.setText(rowElements.get(i).getCallingTime());
+        viewHolder.tvMoto.setText(String.valueOf(rowElements.get(i).getActionMoto()));
 
         viewHolder.imageButtonCall.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +60,7 @@ class CustomAdapterForPendingJobList extends RecyclerView.Adapter<CustomAdapterF
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(context, rowElements.get(i).pharmacyName, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, rowElements.get(i).getPharmacyName(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -98,7 +98,7 @@ class CustomAdapterForPendingJobList extends RecyclerView.Adapter<CustomAdapterF
             rowElements.addAll(originalRowElements);
         } else {
             rowElements.clear();
-            for (PendingJobListElement element : originalRowElements) {
+            for (Pharmacy element : originalRowElements) {
                 if (element.getPharmacyName().toLowerCase().contains(charText)) {
                     rowElements.add(element);
                 }
