@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -108,10 +109,10 @@ public class PendingJobDetailExtensionActivity extends AppCompatActivity {
         collectData();
 
         distributorRV.setAdapter(distributorAdapter);
-        distributorRV.setLayoutManager(new LinearLayoutManager(PendingJobDetailExtensionActivity.this));
+        distributorRV.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL));
 //        progressBar1.setVisibility(View.GONE);
         problemRV.setAdapter(problemAdapter);
-        problemRV.setLayoutManager(new LinearLayoutManager(PendingJobDetailExtensionActivity.this));
+        problemRV.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL));
 //        progressBar2.setVisibility(View.GONE);
     }
 
