@@ -41,7 +41,7 @@ public class DashboardFragment extends Fragment {
 
         init(view);
 
-        textViewPendingJobsCount.setText("PendingJobs\n"+PendingJobsFragment.rowElements.size());
+        textViewPendingJobsCount.setText("PendingJobs\n"+PendingJobsActivity.rowElements.size());
         return view;
     }
 

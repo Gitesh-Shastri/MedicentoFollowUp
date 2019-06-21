@@ -5,27 +5,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".CustomerSatisfactionActivity">
 
     <!--Cx means Customer-->
     <android.support.v7.widget.Toolbar
 
-        android:id="@+id/fragment_cx_retention_toolbar"
+        android:id="@+id/activity_cx_satisfaction_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#03A9F4"
         android:gravity="center_vertical|start"
-       >
+        >
 
         <android.support.v7.widget.ActionMenuView
-            android:id="@+id/fragment_cx_retention_toolbar_menu_view"
+            android:id="@+id/activity_cx_satisfaction_toolbar_menu_view"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize" />
 
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerViewCxRetention"
+        android:id="@+id/recyclerViewCxSatisfaction"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ffffff"

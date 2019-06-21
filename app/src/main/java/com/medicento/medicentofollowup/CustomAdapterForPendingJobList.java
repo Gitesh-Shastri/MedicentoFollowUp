@@ -1,6 +1,7 @@
 package com.medicento.medicentofollowup;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -61,6 +62,9 @@ class CustomAdapterForPendingJobList extends RecyclerView.Adapter<CustomAdapterF
             public void onClick(View view) {
 
                 Toast.makeText(context, rowElements.get(i).getPharmacyName(), Toast.LENGTH_SHORT).show();
+
+                moveToActivity(PendingJobDetailsActivity.class);
+
             }
         });
     }
@@ -104,17 +108,12 @@ class CustomAdapterForPendingJobList extends RecyclerView.Adapter<CustomAdapterF
                 }
             }
 
-            if(rowElements.size() == 0){
-
-
-
+            if (rowElements.size() == 0) {
 
                 Toast.makeText(context, charText + ": not found", Toast.LENGTH_SHORT).show();
-            }
+            } else {
 
-            else {
-
-                Toast.makeText(context, "found "+rowElements.size() + " results:)" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "found " + rowElements.size() + " results:)", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -123,4 +122,13 @@ class CustomAdapterForPendingJobList extends RecyclerView.Adapter<CustomAdapterF
     }
 
 
+    private void moveToActivity(Class activity) {
+
+        Intent i = new Intent(context, activity);
+
+        // remove this activity from back stack
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        context.startActivity(i);
+    }
 }

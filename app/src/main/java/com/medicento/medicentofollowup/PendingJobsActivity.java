@@ -1,43 +1,42 @@
 package com.medicento.medicentofollowup;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-public class PendingJobsFragment extends Fragment {
+public class PendingJobsActivity extends AppCompatActivity {
 
     // ArrayList for pending job list
-    protected static ArrayList<Pharmacy> rowElements = new ArrayList<Pharmacy>();
+    protected static ArrayList<Pharmacy> rowElements = new ArrayList<>();
 
-    Toolbar toolbar;
-    SearchView searchViewFragmentPendingJobs;
+    private Toolbar toolbar;
+    private SearchView searchViewActivityPendingJobs;
     private boolean isSearchViewOpen = false;
     private CustomAdapterForPendingJobList customAdapter;
     private RecyclerView recyclerView;
+    private ActionMenuView actionMenuView;
 
-    // Overriding onCreateView of Fragment class
-
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pending_jobs);
+
+
+        ArrayList<Pharmacy> rowElements = new ArrayList<>();
 
         //get the pharmacy details and add into rowElements
         Pharmacy pharmacy1 = new Pharmacy();
@@ -69,32 +68,38 @@ public class PendingJobsFragment extends Fragment {
 
         rowElements.add(pharmacy);
 
-        //  to make the options appear in your Toolbar
-        setHasOptionsMenu(true);
-
-        // get the layout associated with PendingJobsFragment
-
-        // Inflate the layout for this fragment
-
-        View view = inflater.inflate(R.layout.fragment_pending_jobs, container, false);
+        PendingJobsActivity.rowElements.clear();
+        PendingJobsActivity.rowElements.addAll(rowElements);
 
         // get the reference of toolbar
-        toolbar = view.findViewById(R.id.fragment_pending_job_toolbar);
+        toolbar = findViewById(R.id.activity_pending_job_toolbar);
+
+        actionMenuView = findViewById(R.id.activity_pending_job_toolbar_menu_view);
 
         // get reference of searchViewFragmentPendingJobs
-        searchViewFragmentPendingJobs = view.findViewById(R.id.searchViewFragmentPendingJobs);
+        searchViewActivityPendingJobs = findViewById(R.id.searchViewActivityPendingJobs);
 
 
-        toolbar.setTitle("Pending Jobs");
-        Menu menu = toolbar.getMenu();
-        TextView textView = view.findViewById(R.id.text);
+        // set onItemCLickListener on actionMenuView
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            actionMenuView.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem menuItem) {
+
+                    return onOptionsItemSelected(menuItem);
+                }
+            });
+        } else {
+
+            showToastMessage("Function not supported in this device..");
+        }
 
         // replace toolbar as actionbar
-        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
 
         // get the reference of RecyclerView
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewPendingJobs);
+        recyclerView = findViewById(R.id.recyclerViewPendingJobs);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
@@ -111,15 +116,15 @@ public class PendingJobsFragment extends Fragment {
         }
 
         // set a LinearLayoutManager with default vertical orientation
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         //  call the constructor of CustomAdapter to send the reference and data to Adapter
-        customAdapter = new CustomAdapterForPendingJobList(getActivity(), rowElements);
+        customAdapter = new CustomAdapterForPendingJobList(this, rowElements);
         recyclerView.setAdapter(customAdapter); // set the Adapter to RecyclerView
 
 
         // set queryChangeListener to search bar
-        searchViewFragmentPendingJobs.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchViewActivityPendingJobs.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 return false;
@@ -132,14 +137,16 @@ public class PendingJobsFragment extends Fragment {
             }
         });
 
-
-        return view;
     }
 
+
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.pending_jobs_fragment_menu_main, menu);
-        super.onCreateOptionsMenu(menu, inflater);
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.pending_jobs_activity_menu_item, actionMenuView.getMenu());
+
+        return true;
     }
 
     @Override
@@ -165,23 +172,23 @@ public class PendingJobsFragment extends Fragment {
                 item.setTitle("close search bar");
 
                 // make the searchView ready to get input
-                searchViewFragmentPendingJobs.setIconified(false);
+                searchViewActivityPendingJobs.setIconified(false);
 
-                searchViewFragmentPendingJobs.setVisibility(View.VISIBLE);
-                searchViewFragmentPendingJobs.animate().alpha(1).setDuration(500);
+                searchViewActivityPendingJobs.setVisibility(View.VISIBLE);
+                searchViewActivityPendingJobs.animate().alpha(1).setDuration(500);
             } else {
                 isSearchViewOpen = false;
 
                 // revert back the adapter
-                customAdapter = new CustomAdapterForPendingJobList(getActivity(), rowElements);
+                customAdapter = new CustomAdapterForPendingJobList(this, rowElements);
                 recyclerView.setAdapter(customAdapter);
 
                 item.setIcon(R.drawable.filter_filled_icon);
                 item.setTitle("Filter pending jobs");
 
-                searchViewFragmentPendingJobs.animate().alpha(0).setDuration(500);
+                searchViewActivityPendingJobs.animate().alpha(0).setDuration(500);
 
-                searchViewFragmentPendingJobs.setVisibility(View.GONE);
+                searchViewActivityPendingJobs.setVisibility(View.GONE);
             }
 
 
@@ -192,16 +199,17 @@ public class PendingJobsFragment extends Fragment {
 
     private void showToastMessage(String message) {
 
-        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void moveToActivity(Class activity) {
 
-        Intent i = new Intent(getActivity(), activity);
+        Intent i = new Intent(this, activity);
 
         // remove this activity from back stack
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         startActivity(i);
     }
+
 }

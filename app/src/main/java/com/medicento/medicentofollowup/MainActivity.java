@@ -1,5 +1,6 @@
 package com.medicento.medicentofollowup;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements DashboardFragment
             case R.id.card_view1:
                 //pending jobs selected fregment
                 Toast.makeText(this, "card view1 clicked", Toast.LENGTH_SHORT).show();
-                loadFragment(new PendingJobsFragment());
+                moveToActivity(PendingJobsActivity.class);
                 break;
             case R.id.card_view2:
                 //to be targeted fragment
@@ -114,13 +115,13 @@ public class MainActivity extends AppCompatActivity implements DashboardFragment
             case R.id.nav_pendingjobs:
                 break;
             case R.id.nav_acquisition:
-                loadFragment(new CustomerAcquisitionFragment());
+                moveToActivity(CustomerAcquisitionActivity.class);
                 break;
             case R.id.nav_retention:
-                loadFragment(new CustomerRetentionFragment());
+                moveToActivity(CustomerRetentionActivity.class);
                 break;
             case R.id.nav_satisfaction:
-                loadFragment(new CustomerSatisfactionFragment());
+                moveToActivity(CustomerSatisfactionActivity.class);
                 break;
             case R.id.nav_cashcollection:
                 break;
@@ -170,5 +171,11 @@ public class MainActivity extends AppCompatActivity implements DashboardFragment
         // remove this fragment from backStack
         fragmentManager.popBackStack();
 
+    }
+
+    private void moveToActivity(Class activity){
+
+        Intent intent = new Intent(this, activity);
+        startActivity(intent);
     }
 }

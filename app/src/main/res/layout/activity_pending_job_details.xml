@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".PendingJobDetailsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/activity_pending_job_details_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#03A9F4"
+        android:gravity="center_vertical|start">
+
+    <android.support.v7.widget.ActionMenuView
+        android:id="@+id/activity_pending_job_details_toolbar_menu_view"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+    </android.support.v7.widget.ActionMenuView>
+
+    </android.support.v7.widget.Toolbar>
+
+</LinearLayout>
