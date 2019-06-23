@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PendingJobDetailsActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/activity_pending_job_details_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#03A9F4"
+            android:gravity="center_vertical|start">
+
+            <android.support.v7.widget.ActionMenuView
+                android:id="@+id/activity_pending_job_details_toolbar_menu_view"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+            </android.support.v7.widget.ActionMenuView>
+
+        </android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/textViewArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:elevation="10dp"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="Area:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#00E5FF" />
+
+        <TextView
+            android:id="@+id/textViewAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:elevation="10dp"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="Address:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#00E5FF" />
+
+        <TextView
+            android:id="@+id/textViewCallingTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:elevation="10dp"
+            android:gravity="clip_vertical|center_horizontal"
+            android:padding="10dp"
+            android:text="Call @ 9:30"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#00E5FF" />
+
+
+        <LinearLayout
+            android:id="@+id/linearLayoutExtendPendingJobDetailsForRetention"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+            <TextView
+                android:id="@+id/textViewFirstCallDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#FFFFFF"
+                android:elevation="10dp"
+                android:gravity="clip_vertical|center_horizontal"
+                android:padding="10dp"
+                android:text="First Call @ 15/0/6/2019"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#00E5FF" />
+
+
+            <TextView
+                android:id="@+id/textViewNumberOfDistributor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#FFFFFF"
+                android:elevation="10dp"
+                android:gravity="clip_vertical|center_horizontal"
+                android:padding="10dp"
+                android:text="No. of distributor:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerViewDistributors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+
+            </android.support.v7.widget.RecyclerView>
+
+
+            <View
+                android:id="@+id/divider6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#00E5FF" />
+
+
+            <TextView
+                android:id="@+id/textViewNumberOfProblemsFaced"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#FFFFFF"
+                android:elevation="10dp"
+                android:gravity="clip_vertical|center_horizontal"
+                android:padding="10dp"
+                android:text="No. of problems faced:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/textViewProductQuality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=". ProductQuality"
+                    android:visibility="gone"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+                    />
+
+                <TextView
+                    android:id="@+id/textViewProductMismatch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=". ProductMismatch"
+                    android:visibility="gone"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+                    />
+
+                <TextView
+                    android:id="@+id/textViewLateDelivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text=". LateDelivery"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+                    />
+
+                <TextView
+                    android:id="@+id/textViewCreditPeriod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text=". CreditPeriod"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+                    />
+
+
+                <TextView
+                    android:id="@+id/textViewIssueWithDistributor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text=". IssueWithDistributor"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+                    />
+
+                <TextView
+                    android:id="@+id/textViewMedicineNotAvailable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text=". MedicineNotAvailable"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+                    />
+
+                <TextView
+                    android:id="@+id/textViewIssueWithDeliveryBoy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text=". IssueWithDeliveryBoy"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+                    />
+
+            </TableLayout>
+
+            <View
+                android:id="@+id/divider7"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#00E5FF" />
+
+            <TextView
+                android:id="@+id/textViewFirstOrderDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#FFFFFF"
+                android:elevation="10dp"
+                android:gravity="clip_vertical|center_horizontal"
+                android:padding="10dp"
+                android:text="First order @ 22/06/2019"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <View
+                android:id="@+id/divider9"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#00E5FF" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#FFFFFF"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <Button
+                android:id="@+id/buttonCallPharmacy"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_call_black_24dp" />
+
+            <View
+                android:id="@+id/divider8"
+                android:layout_width="1dp"
+                android:layout_height="40dp"
+                android:background="#00E5FF" />
+
+            <Button
+                android:id="@+id/buttonMesagePharmacy"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_message_black_24dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
