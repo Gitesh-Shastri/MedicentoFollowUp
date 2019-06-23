@@ -2,8 +2,8 @@ package com.medicento.medicentofollowup;
 
 import android.content.Intent;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class CustomerRetentionActivity extends AppCompatActivity {
 
@@ -41,12 +42,21 @@ public class CustomerRetentionActivity extends AppCompatActivity {
         Problems problems = new Problems();
         problems.setLateDelivery(true);
 
+        feedbacks.setProblems(problems);
+
         feedbacks.setLateDeliveryCount(5);
         feedbacks.setOnboarded(Onboarded.YES);
+
+        pharmacy.setFeedbacks(feedbacks);
 
         pharmacy.setFirstOrderDate(new Date(2019, 4, 8));
         pharmacy.setMobileNumber("8139001736");
 
+
+        Distributor distributor = new Distributor("Anil Medico Dis", "Bangalore#123");
+        List<Distributor> arrayList = new ArrayList<>();
+        arrayList.add(distributor);
+        pharmacy.setDistributorList(arrayList);
         // add to row elements
         rowElements.add(pharmacy);
 

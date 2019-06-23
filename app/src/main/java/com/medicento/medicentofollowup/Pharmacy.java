@@ -1,9 +1,11 @@
 package com.medicento.medicentofollowup;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Pharmacy {
+public class Pharmacy implements Serializable {
 
     private String pharmacyName;
     private String mobileNumber;
@@ -12,8 +14,8 @@ public class Pharmacy {
     private String address;
     private Date firstOrderDate;
     private Date firstCallDate;
-    private List<Distributor> distributorList;
-    private Feedbacks feedbacks;
+    private List<Distributor> distributorList = new ArrayList<>();
+    private Feedbacks feedbacks = new Feedbacks();
 
 
     public String getPharmacyName() {

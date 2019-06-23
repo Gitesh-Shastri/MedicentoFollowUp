@@ -3,6 +3,7 @@
     package="com.medicento.medicentofollowup">
     <!-- get internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -11,11 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PendingJobsActivity"></activity>
-        <activity android:name=".CustomerSatisfactionActivity" />
-        <activity android:name=".CustomerRetentionActivity" />
-        <activity android:name=".CustomerAcquisitionActivity" />
-        <activity android:name=".PendingJobDetailsActivity" />
+        <activity android:name=".PendingJobsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".CustomerSatisfactionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CustomerRetentionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CustomerAcquisitionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PendingJobDetailsActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />

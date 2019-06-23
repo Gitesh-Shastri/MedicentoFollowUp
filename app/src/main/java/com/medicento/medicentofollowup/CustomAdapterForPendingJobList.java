@@ -24,7 +24,6 @@ class CustomAdapterForPendingJobList extends RecyclerView.Adapter<CustomAdapterF
         this.context = context;
         this.rowElements = new ArrayList<>();
         this.rowElements.addAll(rowElements);
-        ;
         this.originalRowElements = rowElements;
     }
 
@@ -63,7 +62,9 @@ class CustomAdapterForPendingJobList extends RecyclerView.Adapter<CustomAdapterF
 
                 Toast.makeText(context, rowElements.get(i).getPharmacyName(), Toast.LENGTH_SHORT).show();
 
-                moveToActivity(PendingJobDetailsActivity.class);
+                Pharmacy pharmacy = rowElements.get(i);
+
+                moveToActivity(PendingJobDetailsActivity.class, pharmacy);
 
             }
         });
@@ -122,9 +123,12 @@ class CustomAdapterForPendingJobList extends RecyclerView.Adapter<CustomAdapterF
     }
 
 
-    private void moveToActivity(Class activity) {
+    private void moveToActivity(Class activity, Pharmacy pharmacy) {
 
         Intent i = new Intent(context, activity);
+
+        // pass serialized pharmacy object to next activity
+        i.putExtra("PHARMACY_OBJECT", pharmacy);
 
         // remove this activity from back stack
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
