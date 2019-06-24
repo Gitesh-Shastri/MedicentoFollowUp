@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/pending_job_details_menu_back_button"
+        android:orderInCategory="100"
+        android:title="back to pending jobs"
+        android:icon="@drawable/ic_arrow_back_black_24dp"
+        app:showAsAction="always"
+
+        />
+
+    <item android:id="@+id/pendin_job_details_pharmacy_name"
+        android:title="Pharma Name"
+        android:orderInCategory="200"
+        app:showAsAction="always"
+        />
+
+    <item android:id="@+id/pendin_jobs_details_call_pharmacy_button"
+        android:title="call pharmacy"
+        android:orderInCategory="300"
+        android:icon="@drawable/ic_call_black_24dp"
+        app:showAsAction="always"
+        />
+
+    <item android:id="@+id/pendin_jobs_details_message_pharmacy_button"
+        android:title="call phamacy"
+        android:orderInCategory="400"
+        android:icon="@drawable/ic_message_black_24dp"
+        app:showAsAction="always"
+        />
+
+
+</menu>
