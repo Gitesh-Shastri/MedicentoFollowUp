@@ -17,7 +17,7 @@
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
+            android:background="#03A9F4"
             android:id="@+id/toolbar"
             android:elevation="5dp"></android.support.v7.widget.Toolbar>
 
@@ -37,5 +37,5 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu" />
-    
+
 </android.support.v4.widget.DrawerLayout>

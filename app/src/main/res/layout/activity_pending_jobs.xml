@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_pending_jobs_root_view"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PendingJobsActivity">
+
+    <android.support.v7.widget.Toolbar
+
+        android:id="@+id/activity_pending_job_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#03A9F4"
+        android:stateListAnimator="@animator/statelist_animator">
+
+        <android.support.v7.widget.ActionMenuView
+            android:id="@+id/activity_pending_job_toolbar_menu_view"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <SearchView
+        android:id="@+id/searchViewActivityPendingJobs"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:queryHint="Filter by name or address"
+        android:background="#4B00B0FF"
+        android:visibility="gone"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewPendingJobs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff" />
+
+
+</LinearLayout>

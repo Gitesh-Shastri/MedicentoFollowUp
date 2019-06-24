@@ -1,13 +1,13 @@
 package com.medicento.medicentofollowup;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 public class DashboardFragment extends Fragment {
@@ -15,6 +15,9 @@ public class DashboardFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     CardView card1,card2,card3,card4,card5,card6;
+
+    TextView textViewPendingJobsCount, textViewToBeTargetedCount,
+                textViewCallsMadeCount, textViewSuccessCount, textViewRemarksCount, textViewCriticalCount;
 
     public DashboardFragment() {
 
@@ -38,12 +41,15 @@ public class DashboardFragment extends Fragment {
 
         init(view);
 
+        textViewPendingJobsCount.setText("PendingJobs\n"+PendingJobsActivity.rowElements.size());
         return view;
     }
 
     private void init(View view) {
 
         card1=view.findViewById(R.id.card_view1);
+        textViewPendingJobsCount = view.findViewById(R.id.textViewPendingCount);
+
         card2=view.findViewById(R.id.card_view2);
         card3=view.findViewById(R.id.card_view3);
         card4=view.findViewById(R.id.card_view4);

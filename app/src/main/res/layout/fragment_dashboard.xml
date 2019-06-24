@@ -10,168 +10,189 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="STATUS"
-            android:padding="30dp"
+            android:padding="50dp"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#000000"
-            android:textSize="30sp"
             tools:ignore="MissingConstraints"
             android:elevation="5dp" />
 
-        <GridLayout
-            android:background="@color/cardview_shadow_start_color"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:padding="4dp"
+            android:padding="4dp">
 
-            android:alignmentMode="alignBounds"
-            android:columnCount="2"
-            android:rowOrderPreserved="false"
-            android:useDefaultMargins="true">
-
-            <android.support.v7.widget.CardView
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view1"
-                android:layout_gravity="center"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                card_view:cardCornerRadius="4dp">
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                card_view:cardCornerRadius="20dp"
+                android:elevation="100dp"
+                card_view:layout_constraintEnd_toStartOf="@+id/card_view2"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:gravity="center"
+                    android:id="@+id/textViewPendingCount"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Pending jobs"
-                    android:padding="20dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="PendingJobs"
                     android:textAlignment="center"
+                    android:textSize="15sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#000000"/>
+                    android:textColor="#000000"
+                    />
             </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view2"
-                android:layout_gravity="center"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                card_view:cardCornerRadius="4dp"
-                android:gravity="center"
-                android:layout_column="1"
-                android:layout_row="0">
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="40dp"
+                card_view:cardCornerRadius="20dp"
+                android:elevation="100dp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:gravity="center"
+                    android:id="@+id/textViewToBeTargatedCount"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="To Be Targeted"
-                    android:padding="20dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="1dp"
+                    android:text="ToBeTargeted"
                     android:textAlignment="center"
+                    android:textSize="15sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#000000"/>
+                    android:textColor="#000000"
+                   />
             </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view3"
-                android:layout_gravity="center"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                card_view:cardCornerRadius="4dp"
-                android:gravity="center"
-                android:layout_column="0"
-                android:layout_row="1">
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                card_view:cardCornerRadius="20dp"
+                android:elevation="100dp"
+                card_view:layout_constraintEnd_toStartOf="@+id/card_view4"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/card_view1">
 
                 <TextView
-                    android:gravity="center"
+                    android:id="@+id/textViewCallMadeCount"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Calls Made"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:padding="20dp"
+                    android:text="CallsMade"
                     android:textAlignment="center"
+                    android:textSize="15sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#000000"/>
+                    android:textColor="#000000"
+                     />
 
             </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view4"
-                android:layout_gravity="center"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                card_view:cardCornerRadius="4dp"
-                android:gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_row="1"
                 android:layout_column="1"
-                android:layout_row="1">
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="40dp"
+                card_view:cardCornerRadius="20dp"
+                android:elevation="100dp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/card_view2">
 
                 <TextView
-                    android:gravity="center"
+                    android:id="@+id/textViewSuccessCount"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="20dp"
                     android:text="Success"
-                    android:padding="20dp"
                     android:textAlignment="center"
+                    android:textSize="15sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#000000"/>
+                    android:textColor="#000000"
+              />
 
             </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view5"
-                android:layout_gravity="center"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                card_view:cardCornerRadius="4dp"
-                android:gravity="center"
-                android:layout_column="0"
-                android:layout_row="2">
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                card_view:cardCornerRadius="20dp"
+                android:elevation="100dp"
+                card_view:layout_constraintEnd_toStartOf="@+id/card_view6"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/card_view3">
 
                 <TextView
-                    android:gravity="center"
+                    android:id="@+id/textViewRemarksCount"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="20dp"
                     android:text="Remarks"
-                    android:padding="20dp"
                     android:textAlignment="center"
+                    android:textSize="15sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#000000"/>
+                    android:textColor="#000000"
+                   />
 
             </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view6"
-                android:layout_gravity="center"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                card_view:cardCornerRadius="4dp"
-                android:gravity="center"
-                android:layout_column="1"
-                android:layout_row="2">
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="40dp"
+                card_view:cardCornerRadius="20dp"
+                android:elevation="100dp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/card_view4">
 
                 <TextView
-                    android:gravity="center"
+                    android:id="@+id/textViewCriticalCount"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Critical"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:padding="20dp"
+                    android:text="Critical"
                     android:textAlignment="center"
+                    android:textSize="15sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#000000"/>
+                    android:textColor="#000000" />
 
             </android.support.v7.widget.CardView>
 
 
-        </GridLayout>
+        </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>
 
