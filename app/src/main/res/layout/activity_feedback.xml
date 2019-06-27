@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FeedbackActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pharmacy name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_margin="10dp"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/addressTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_below="@id/nameTextView"/>
+
+        <TextView
+            android:id="@+id/textHint1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reason for stopped Ordering:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_below="@id/addressTextView"/>
+
+        <TextView
+            android:id="@+id/textHint2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Issues with distributor:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_below="@id/textHint1"/>
+
+        <LinearLayout
+            android:id="@+id/issueswithdistributor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/textHint2"
+            android:padding="10dp"
+            android:layout_margin="10dp">
+
+            <CheckBox
+                android:id="@+id/yes1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"
+                android:layout_gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/no1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textHint3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Late delivery:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_below="@id/issueswithdistributor"/>
+
+        <LinearLayout
+            android:id="@+id/latedelivery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/textHint3"
+            android:padding="10dp"
+            android:layout_margin="10dp">
+
+            <CheckBox
+                android:id="@+id/yes2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"
+                android:layout_gravity="center" />
+
+            <CheckBox
+                android:id="@+id/no2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textHint6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How many times?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_below="@id/latedelivery"/>
+
+        <LinearLayout
+            android:id="@+id/latedeliveryextended"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/textHint6"
+            android:padding="10dp"
+            android:layout_margin="10dp">
+
+            <CheckBox
+                android:id="@+id/cond1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1 - 5"
+                android:layout_gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/cond2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="More than 5"
+                android:layout_gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/cond3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Always"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/textHint4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medicines not available?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_below="@id/latedeliveryextended"/>
+
+        <LinearLayout
+            android:id="@+id/availabilityofmedicine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/textHint4"
+            android:padding="10dp"
+            android:layout_margin="10dp">
+
+            <CheckBox
+                android:id="@+id/yes3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"
+                android:layout_gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/no3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="No" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textHint7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Brands Not available?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_below="@id/availabilityofmedicine"/>
+
+        <LinearLayout
+            android:id="@+id/availabilityofmedicineextended"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/textHint7"
+            android:padding="10dp"
+            android:layout_margin="10dp">
+
+            <CheckBox
+                android:id="@+id/yes5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"
+                android:layout_gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/no5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="More than 5"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textHint5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Issues with distributor:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_below="@id/availabilityofmedicineextended"/>
+
+        <LinearLayout
+            android:id="@+id/issueswithdeliveryboy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/textHint5"
+            android:padding="10dp"
+            android:layout_margin="10dp">
+
+            <CheckBox
+                android:id="@+id/yes4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"
+                android:layout_gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/no4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/issueswithdeliveryboyextended"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/issueswithdeliveryboy"
+            android:padding="10dp"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Distributor"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:layout_margin="10dp"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:hint="enter the distributor name"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textHint8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Other reasons?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_below="@id/issueswithdeliveryboyextended"/>
+
+        <LinearLayout
+            android:id="@+id/others"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/textHint8"
+            android:padding="10dp"
+            android:layout_margin="10dp">
+
+            <CheckBox
+                android:id="@+id/yes6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"
+                android:layout_gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/no6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/otherslayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/others"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/other1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/other2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="10dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textHint9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pharmacy Re-Onboarded?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_below="@id/otherslayout"/>
+
+        <LinearLayout
+            android:id="@+id/reonboarded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/textHint9"
+            android:padding="10dp"
+            android:layout_margin="10dp">
+
+            <CheckBox
+                android:id="@+id/yes7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"
+                android:layout_gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/no7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No"
+                android:layout_gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/idk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Don't Know."
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

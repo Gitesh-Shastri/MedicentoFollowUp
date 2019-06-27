@@ -288,7 +288,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/ic_call_black_24dp" />
+                android:background="@drawable/ic_launcher_background" />
 
             <View
                 android:id="@+id/divider8"
@@ -301,7 +301,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/ic_message_black_24dp" />
+                android:background="@drawable/ic_launcher_background" />
         </LinearLayout>
 
 
