@@ -120,6 +120,7 @@
             android:text="How many times?"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:layout_margin="10dp"
+            android:visibility="gone"
             android:padding="10dp"
             android:layout_below="@id/latedelivery"/>
 
@@ -130,6 +131,7 @@
             android:orientation="horizontal"
             android:layout_below="@id/textHint6"
             android:padding="10dp"
+            android:visibility="gone"
             android:layout_margin="10dp">
 
             <CheckBox
@@ -203,6 +205,7 @@
             android:text="Brands Not available?"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:layout_margin="10dp"
+            android:visibility="gone"
             android:padding="10dp"
             android:layout_below="@id/availabilityofmedicine"/>
 
@@ -213,6 +216,7 @@
             android:orientation="horizontal"
             android:layout_below="@id/textHint7"
             android:padding="10dp"
+            android:visibility="gone"
             android:layout_margin="10dp">
 
             <CheckBox
@@ -237,11 +241,10 @@
             android:id="@+id/textHint5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Issues with distributor:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:layout_margin="10dp"
+            android:layout_below="@id/availabilityofmedicineextended"
             android:padding="10dp"
-            android:layout_below="@id/availabilityofmedicineextended"/>
+            android:text="Issues with Delivery Boy:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <LinearLayout
             android:id="@+id/issueswithdeliveryboy"
@@ -277,6 +280,7 @@
             android:orientation="horizontal"
             android:layout_below="@id/issueswithdeliveryboy"
             android:padding="10dp"
+            android:visibility="gone"
             android:layout_margin="10dp">
 
             <TextView
@@ -289,12 +293,13 @@
                 android:layout_weight="1"/>
 
             <EditText
+                android:id="@+id/distributorname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:hint="enter the distributor name"/>
+                android:hint="enter the distributor name"
+                android:padding="10dp" />
 
         </LinearLayout>
 
@@ -340,7 +345,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/others"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <EditText
                 android:id="@+id/other1"
@@ -402,6 +408,19 @@
                 android:layout_gravity="center"/>
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/submitbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/reonboarded"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/design_default_color_primary"
+            android:padding="10dp"
+            android:text="SUBMIT" />
 
     </RelativeLayout>
 
