@@ -4,6 +4,8 @@
     <!-- get internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
 
     <application
         android:allowBackup="true"
@@ -12,16 +14,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PendingJobsActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".CustomerSatisfactionActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".CustomerRetentionActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".CustomerAcquisitionActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".PendingJobDetailsActivity"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".FeedbackActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".PendingJobsActivity"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CustomerSatisfactionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CustomerRetentionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CustomerAcquisitionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PendingJobDetailsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />

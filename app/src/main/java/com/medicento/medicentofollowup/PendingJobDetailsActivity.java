@@ -1,5 +1,6 @@
 package com.medicento.medicentofollowup;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -9,6 +10,9 @@ import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -222,7 +226,6 @@ public class PendingJobDetailsActivity extends AppCompatActivity {
                 showToastMessage("Opening calling app...");
                 call();
 
-                // open feedback page
             }
         });
 
@@ -261,10 +264,11 @@ public class PendingJobDetailsActivity extends AppCompatActivity {
         }
 
         if (id == R.id.pendin_jobs_details_call_pharmacy_button) {
+
             showToastMessage("Opening calling app...");
 
             call();
-            // open feedback fragment
+
 
 
         }
@@ -296,6 +300,12 @@ public class PendingJobDetailsActivity extends AppCompatActivity {
 
 
     public void call() {
+
+        // attach call listener
+        EndCallListener callListener = new EndCallListener();
+        TelephonyManager mTM = (TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
+        mTM.listen(callListener, PhoneStateListener.LISTEN_CALL_STATE);
+
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:" + pharmacy.getMobileNumber()));
         startActivity(intent);
@@ -307,4 +317,27 @@ public class PendingJobDetailsActivity extends AppCompatActivity {
         smsIntent.putExtra("address", pharmacy.getMobileNumber());
         startActivity(smsIntent);
     }
+
+
+    class EndCallListener extends PhoneStateListener {
+        @Override
+        public void onCallStateChanged(int state, String incomingNumber) {
+            if(TelephonyManager.CALL_STATE_RINGING == state) {
+                Log.i("CALL_STATE1", "RINGING, number: " + incomingNumber);
+
+                moveToActivity(FeedbackActivity.class);
+            }
+            if(TelephonyManager.CALL_STATE_OFFHOOK == state) {
+                //wait for phone to go offhook (probably set a boolean flag) so you know your app initiated the call.
+                Log.i("CALL_STATE1", "OFFHOOK");
+                moveToActivity(FeedbackActivity.class);
+            }
+            if(TelephonyManager.CALL_STATE_IDLE == state) {
+                //when this state occurs, and your flag is set, restart your app
+                Log.i("CALL_STATE1", "IDLE");
+            }
+        }
+    }
 }
+
+
